@@ -2,14 +2,14 @@
 
 namespace Tlconseil\SystempayBundle\Twig;
 
-use Twig_Extension;
-use Twig_SimpleFunction;
+use Twig\Extension\AbstractExtension;
+use Twig\TwigFunction;
 
 /**
  * Class TwigExtension
  * @package Tlconseil\SystempayBundle\Twig
  */
-class TwigExtension extends Twig_Extension
+class TwigExtension extends AbstractExtension
 {
     /**
      * @return array
@@ -17,7 +17,7 @@ class TwigExtension extends Twig_Extension
     public function getFunctions()
     {
         return array(
-            new Twig_SimpleFunction('systempayForm', array($this, 'systempayForm')),
+            new TwigFunction('systempayForm', array($this, 'systempayForm')),
         );
     }
 
@@ -33,11 +33,4 @@ class TwigExtension extends Twig_Extension
         return $inputs;
     }
 
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return 'systempay_twig_extension';
-    }
 }
